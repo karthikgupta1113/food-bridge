@@ -1,0 +1,254 @@
+.gift-box-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.sparkles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.sparkle {
+  position: absolute;
+  font-size: 1.5rem;
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.6));
+}
+
+.glow-effect {
+  position: absolute;
+  bottom: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 150px;
+  background: radial-gradient(ellipse at center, rgba(255, 165, 0, 0.4) 0%, rgba(255, 165, 0, 0.1) 50%, transparent 100%);
+  border-radius: 50%;
+  filter: blur(30px);
+}
+
+.gift-box {
+  position: relative;
+  width: 200px;
+  height: 150px;
+  transform-style: preserve-3d;
+}
+
+.box-body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.box-face {
+  position: absolute;
+  width: 200px;
+  height: 150px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #0a0a0a 100%);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  backface-visibility: hidden;
+  box-shadow: inset 0 0 30px rgba(255, 215, 0, 0.1), 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.front {
+  transform: translateZ(75px);
+}
+
+.back {
+  transform: rotateY(180deg) translateZ(75px);
+  opacity: 0.8;
+}
+
+.top {
+  height: 75px;
+  transform: rotateX(90deg) translateZ(75px);
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  border: 2px solid #FFE44D;
+}
+
+.bottom {
+  height: 75px;
+  transform: rotateX(-90deg) translateZ(75px);
+  background: linear-gradient(135deg, #DAA520 0%, #FF8C00 100%);
+  border: 2px solid #FFB347;
+}
+
+.left {
+  width: 75px;
+  transform: rotateY(-90deg) translateZ(100px);
+  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+}
+
+.right {
+  width: 75px;
+  transform: rotateY(90deg) translateZ(100px);
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+}
+
+.ribbon {
+  position: absolute;
+  background: linear-gradient(90deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5), inset 0 1px 3px rgba(255, 255, 255, 0.3);
+}
+
+.ribbon-horizontal {
+  width: 100%;
+  height: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.ribbon-vertical {
+  width: 20px;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 30% 30%, #FFE44D, #FFD700, #FFA500);
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.bow::before,
+.bow::after {
+  content: '';
+  position: absolute;
+  width: 35px;
+  height: 25px;
+  background: linear-gradient(45deg, #FFD700, #FFA500);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+}
+
+.bow::before {
+  left: -30px;
+  transform: translateY(-50%) rotate(-30deg);
+}
+
+.bow::after {
+  right: -30px;
+  transform: translateY(-50%) rotate(30deg);
+}
+
+.gift-text {
+  position: absolute;
+  bottom: -100px;
+  text-align: center;
+  width: 100%;
+  color: white;
+}
+
+.text-main {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: #FFD700;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.text-sub {
+  font-size: 0.9rem;
+  margin: 8px 0 0 0;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  font-size: 1.2rem;
+  pointer-events: none;
+}
+
+/* Hover Effects */
+@media (hover: hover) {
+  .gift-box-container:hover .box-face {
+    box-shadow: inset 0 0 30px rgba(255, 215, 0, 0.2), 0 10px 50px rgba(255, 215, 0, 0.3);
+  }
+
+  .gift-box-container:hover .bow {
+    box-shadow: 0 0 25px rgba(255, 215, 0, 1), 0 10px 30px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  .gift-box-container {
+    width: 300px;
+    height: 300px;
+  }
+
+  .gift-box {
+    width: 150px;
+    height: 120px;
+  }
+
+  .box-face {
+    width: 150px;
+    height: 120px;
+  }
+
+  .front {
+    transform: translateZ(60px);
+  }
+
+  .back {
+    transform: rotateY(180deg) translateZ(60px);
+  }
+
+  .top {
+    height: 60px;
+    transform: rotateX(90deg) translateZ(60px);
+  }
+
+  .bottom {
+    height: 60px;
+    transform: rotateX(-90deg) translateZ(60px);
+  }
+
+  .left {
+    width: 60px;
+    transform: rotateY(-90deg) translateZ(75px);
+  }
+
+  .right {
+    width: 60px;
+    transform: rotateY(90deg) translateZ(75px);
+  }
+
+  .text-main {
+    font-size: 1.2rem;
+  }
+
+  .text-sub {
+    font-size: 0.8rem;
+  }
+}
